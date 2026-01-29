@@ -1,0 +1,26 @@
+name: Docker Build Dockerfile
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    uses: kube-kaptain/buildon-github-actions/.github/workflows/docker-build-dockerfile.yaml@1.0.53
+    permissions:
+      contents: write
+      packages: write
+      checks: write
+    with:
+      # Version calculation from two upstream sources
+      tag-version-max-parts: 6
+      tag-version-calculation-strategy: 'compound-file-pattern-match'
+      tag-version-pattern-type: 'dockerfile-env-kubectl'
+      tag-version-source-custom-pattern: '^FROM .*kaptain-deploy-scripts:([0-9]+\.[0-9]+\.[0-9]+)( .*)?$'
+      tag-version-prefix-parts: '3'
+      tag-version-source-two-pattern: '^FROM .*image-environment-base-.*:([0-9]+\.[0-9]+\.[0-9]+)$'
+
+      # Test the built image
+      hook-post-docker-tests-script-sub-path: 'bin/test-docker-image.bash'

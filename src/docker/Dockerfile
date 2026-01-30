@@ -1,4 +1,4 @@
-FROM ghcr.io/kube-kaptain/kaptain/kaptain-deploy-scripts:1.0.2 AS KAPTAIN_DEPLOY_SCRIPTS
+FROM ghcr.io/kube-kaptain/kaptain/kaptain-deploy-scripts:1.0.3 AS KAPTAIN_DEPLOY_SCRIPTS
 # Easy way to pull in the scripts for now and maybe forever
 
 FROM ghcr.io/kube-kaptain/image/image-environment-base-trixie-slim:1.35.4

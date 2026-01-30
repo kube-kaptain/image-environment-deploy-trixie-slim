@@ -24,3 +24,5 @@ jobs:
 
       # Test the built image
       hook-post-docker-tests-script-sub-path: 'bin/test-docker-image.bash'
+
+      additional-release-branches: "main-1.33"

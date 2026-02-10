@@ -8,6 +8,6 @@ set -euo pipefail
 
 echo "Testing image: ${DOCKER_IMAGE_FULL_URI}"
 
-docker run --rm "${DOCKER_IMAGE_FULL_URI}" /run/bin/validate-tooling
+docker run --rm "${DOCKER_IMAGE_FULL_URI}" /kd/bin/validate-tooling
 
 echo "Image validation passed"

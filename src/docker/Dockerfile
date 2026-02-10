@@ -5,11 +5,11 @@ FROM ghcr.io/kube-kaptain/image/image-environment-base-trixie-slim:1.32.6
 # Always use the most explicit version you can find for what you need
 
 # All the scripts come in this way
-COPY --from=KAPTAIN_DEPLOY_SCRIPTS /scripts /run/bin
+COPY --from=KAPTAIN_DEPLOY_SCRIPTS /scripts /kd/bin
 
 # Environment build responsibilities:
-# * Place manifests in /run/manifests
-# * Place secrets in /run/secrets
+# * Place manifests in /kd/manifests
+# * Place secrets in /kd/secrets
 # * Change to non-root user after copying all files in
 # * Configure all required environment variables
 #

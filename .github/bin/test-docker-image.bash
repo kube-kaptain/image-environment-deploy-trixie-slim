@@ -6,8 +6,11 @@
 
 set -euo pipefail
 
-echo "Testing image: ${DOCKER_IMAGE_FULL_URI}"
-
-docker run --rm "${DOCKER_IMAGE_FULL_URI}" /kd/bin/validate-tooling
-
-echo "Image validation passed"
+IFS=',' read -ra platforms <<< "${DOCKER_PLATFORM}"
+for platform in "${platforms[@]}"; do
+  platform_suffix="${platform//\//-}"
+  test_image="${DOCKER_IMAGE_FULL_URI}-${platform_suffix}"
+  echo "Testing image: ${test_image}"
+  docker run --rm "${test_image}" /kd/bin/validate-tooling
+  echo "Image validation passed for ${platform}"
+done

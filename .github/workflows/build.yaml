@@ -14,6 +14,9 @@ jobs:
       packages: write
       checks: write
     with:
+      docker-platform: 'linux/amd64,linux/arm64'
+      dockerfile-sub-path-linux-amd64: "src/docker"
+      dockerfile-sub-path-linux-arm64: "src/docker"
       # Version calculation from two upstream sources
       tag-version-max-parts: 6
       tag-version-calculation-strategy: 'compound-file-pattern-match'

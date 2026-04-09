@@ -1,0 +1,8 @@
+apiVersion: kaptain.org/1.15
+kind: docker-build-dockerfile
+metadata:
+  description: "Kaptain deploy image"
+
+spec:
+  layers:
+    - layerset-image-environment-deploy:[1.4,2.0)

@@ -1,4 +1,4 @@
-apiVersion: kaptain.org/1.25
+apiVersion: kaptain.org/1.31
 kind: docker-build-dockerfile
 metadata:
   description: "Kaptain deploy image"
